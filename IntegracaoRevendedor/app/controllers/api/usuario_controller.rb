@@ -14,13 +14,12 @@ module Api
 
                     Validar_Token.validar(token, params[:usuario][:email]) and return
 
-                    render json: { Hash_Autenticacao: token, Codigo: 500}
+                    render json: { Hash_Autenticacao: token, Codigo: 500 }
                 else
-                    render json: { Mensagem: "Senha inválida.", Codigo: 400 } , status: :not_found
+                    render json: { Mensagem: "Senha inválida.", Codigo: 400 }
                 end
             rescue
-                render json: { Mensagem: "Usuário inválido.", Codigo: 400 } , status: :not_found
-            end
+                render json: { Mensagem: "Usuário inválido.", Codigo: 400 }
         end
 
         private

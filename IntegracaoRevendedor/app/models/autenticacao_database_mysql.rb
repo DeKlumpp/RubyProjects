@@ -1,4 +1,4 @@
-class AutenticacaoDatabaseMySql < ActiveRecord::Base
+class AutenticacaoDatabaseMysql < ActiveRecord::Base
     self.abstract_class = true
     establish_connection "development_mysql"
 end

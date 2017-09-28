@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   namespace 'api' do
     resources :usuario
     post '/usuario/login', to: 'usuario#login'
-   #get '/usuario/show', to: 'usuario#show'
+
+    resources :moto
+    post '/moto/obterEstoqueMoto', to: 'moto#obter_estoque_moto'
   end
 end

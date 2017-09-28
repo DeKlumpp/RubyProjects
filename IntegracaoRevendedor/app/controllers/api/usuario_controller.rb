@@ -12,7 +12,7 @@ module Api
                 if @usuario.SENHA == params[:usuario][:senha]
                     token = gerar_token
 
-                    Validar_TokenController.criar(token, params[:usuario][:email]) and return
+                    validar = Validar_TokenController.criar(params[:usuario][:cnpj], token, params[:usuario][:email])
 
                     render json: { token: token, codigo: 500 }
                 else

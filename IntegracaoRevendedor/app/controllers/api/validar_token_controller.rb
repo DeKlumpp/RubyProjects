@@ -1,6 +1,7 @@
 module Api
     class Validar_TokenController < ApplicationController
 
+        respond_to :json
         require 'json'
 
         def self.validar(token)
@@ -12,24 +13,22 @@ module Api
                 if(((data_agora - data_criacao) /1.hour).round > 1)
                     return false
                 else
-                    return !validacao_token.blank?
+                    return validacao_token
                 end
             rescue
-                render json: { mensagem: "Erro inexperado, por favor, contate a nossa central de atendimento.", codigo: 400 }
+                return false
             end
         end
 
-        def self.criar(token, email)
+        def self.criar(cnpj, token, email)
             begin
-                usuario_token = Validar_Token.find_by(EMAIL: email)
-                puts usuario_token.token
+                usuario_token = Validar_Token.find_by(email: email)
                 usuario_token.token = token
                 usuario_token.save
 
                 return true;
             rescue
-                criar_token= Validar_Token.new(email: email, token: token)
-                puts criar_token
+                criar_token= Validar_Token.new(cnpj: cnpj, email: email, token: token)
                 criar_token.save
 
                 return true;

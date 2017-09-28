@@ -11,7 +11,7 @@ default: &default
 
 development_mysql:
   adapter: mysql
-  host: rds-aurora-dev-vmotors-cluster.cluster-cuqb1lmjd24e.us-east-1.rds.amazonaws.com
+  host: rds-aurora-hk-vmotors-cluster.cluster-cuqb1lmjd24e.us-east-1.rds.amazonaws.com
   username: user_webmotors
   password: user_webmotors
   database: vmotor_BDV1
@@ -21,6 +21,14 @@ development_sql:
   mode: dblib
   host: 10.11.13.214
   database: db_webmotors
+  username: user_carros
+  password: user_carros
+
+development_sql_moto:
+  adapter: sqlserver
+  mode: dblib
+  host: 10.11.13.214
+  database: db_motos
   username: user_carros
   password: user_carros
 

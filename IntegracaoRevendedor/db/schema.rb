@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926190415) do
-
-  create_table "autenticacao_database_sqls", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "usuarios", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20170928181546) do
 
   create_table "validar_tokens", force: :cascade do |t|
+    t.string   "cnpj"
     t.string   "email"
     t.string   "token"
     t.datetime "created_at", null: false

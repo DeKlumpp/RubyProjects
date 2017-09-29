@@ -9,9 +9,13 @@ module Api
 
             if(!token_validado.blank?)
                 pessoa_juridica = PessoaJuridica.find_by(NR_VCH_Cnpj: token_validado.cnpj, NM_VCH_Email: token_validado.email)
-                motos = ObterMoto.where(cd_num_PJ: pessoa_juridica.CD_NUM_Cliente, stAnuncio: 'A')
+                @motos = ObterMoto.where(cd_num_PJ: pessoa_juridica.CD_NUM_Cliente, stAnuncio: 'A')
 
-                render json: { mensagem: motos,  codigo: 500 }
+                respond_to do |format|
+                    format.json
+                end
+
+                #render json: @motos.as_json
             else
                 render json: { mensagem: "Token expirado, por favor, refaça o login.", codigo: 400 }
             end

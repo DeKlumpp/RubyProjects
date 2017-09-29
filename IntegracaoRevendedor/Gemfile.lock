@@ -179,7 +179,7 @@ DEPENDENCIES
   jquery-rails
   mysql
   oj
-  pg
+  pg (~> 0.21.0)
   rails (= 4.2.6)
   rails_12factor
   responders (~> 2.0)

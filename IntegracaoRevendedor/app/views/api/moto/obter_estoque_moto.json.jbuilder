@@ -1,4 +1,4 @@
-json.array! @motos do |moto|
+json.array! @estoque do |moto|
     #json do
         json.CodigoAnuncio moto.cdAnuncio
         json.CodigoModalidade moto.cd_num_VersaoProduto

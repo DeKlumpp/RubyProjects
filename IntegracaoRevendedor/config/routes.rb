@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     post '/usuario/login', to: 'usuario#login'
 
     resources :moto
-    post '/moto/obterEstoqueMoto', to: 'moto#obter_estoque_moto'
+    post '/moto/obterestoquemoto', to: 'moto#obter_estoque_moto'
   end
 end

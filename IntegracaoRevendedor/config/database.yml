@@ -1,0 +1,49 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  host: localhost
+  port: 5432
+  adapter: sqlite3
+
+development_mysql:
+  adapter: mysql
+  host: rds-aurora-hk-vmotors-cluster.cluster-cuqb1lmjd24e.us-east-1.rds.amazonaws.com
+  username: user_webmotors
+  password: user_webmotors
+  database: vmotor_BDV1
+
+development_sql:
+  adapter: sqlserver
+  mode: dblib
+  host: 10.11.13.214
+  database: db_webmotors
+  username: user_carros
+  password: user_carros
+
+development_sql_moto:
+  adapter: sqlserver
+  mode: dblib
+  host: 10.11.13.214
+  database: db_motos
+  username: user_carros
+  password: user_carros
+
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
